@@ -70,19 +70,19 @@ void EnemyManager::draw(sf::RenderWindow& i_window)
 			{
 				case 0:
 				{
-					enemy_color = sf::Color(0, 255, 255);
+					enemy_color = sf::Color(182, 10, 240);
 
 					break;
 				}
 				case 1:
 				{
-					enemy_color = sf::Color(255, 0, 255);
+					enemy_color = sf::Color(255, 165, 0);
 
 					break;
 				}
 				case 2:
 				{
-					enemy_color = sf::Color(0, 255, 0);
+					enemy_color = sf::Color(0, 0, 255);
 				}
 			}
 		}
