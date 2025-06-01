@@ -1,4 +1,3 @@
-
 #include <array>
 #include <chrono>
 #include <random>
@@ -6,8 +5,8 @@
 #include <SFML/Audio.hpp>
 #include <iostream>
 #include <string>
+#include <algorithm>
 #include "Headers/UserData.hpp"
-
 #include "Headers/Animation.hpp"
 #include "Headers/DrawText.hpp"
 #include "Headers/Global.hpp"
@@ -22,21 +21,20 @@ int main() {
     bool restart_requested = false;
     bool player_initialized = false;
     bool show_splash = true;
+    bool nameEntered = false;
 
     unsigned int lives = 3;
     unsigned short next_level_timer = NEXT_LEVEL_TRANSITION;
 
     std::string playerName;
+    std::string inputText;
     unsigned short level = 0;
 
     std::chrono::microseconds lag(0);
     std::chrono::steady_clock::time_point previous_time = std::chrono::steady_clock::now();
-    std::chrono::steady_clock::time_point splash_start_time = previous_time;
-
     std::mt19937_64 random_engine(std::chrono::system_clock::now().time_since_epoch().count());
 
     sf::Event event;
-
     sf::RenderWindow window(sf::VideoMode(SCREEN_RESIZE * SCREEN_WIDTH, SCREEN_RESIZE * SCREEN_HEIGHT), "Space Invaders", sf::Style::Close);
     window.setView(sf::View(sf::FloatRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)));
 
@@ -50,22 +48,29 @@ int main() {
     sf::Sprite background_sprite(background_texture);
     sf::Sprite powerup_bar_sprite(powerup_bar_texture);
     sf::Sprite logoSprite(logoTexture);
+    logoSprite.setScale(0.2f, 0.2f);
+    logoSprite.setOrigin(logoSprite.getGlobalBounds().width / 2.0f, logoSprite.getGlobalBounds().height / 2.0f);
+    logoSprite.setPosition(SCREEN_WIDTH / 2.0f-50, SCREEN_HEIGHT / 2.0f - 70);
 
-    // Scale and center logo
-    float scaleFactor = 0.2f;
-    logoSprite.setScale(scaleFactor, scaleFactor);
-    sf::Vector2u logoSize = logoTexture.getSize();
-    logoSprite.setOrigin(logoSize.x / 2.0f, logoSize.y / 2.0f);
-    logoSprite.setPosition(SCREEN_WIDTH / 2.0f, SCREEN_HEIGHT / 2.0f);
+    sf::Font font;
+    if (!font.loadFromFile("Resources/Fonts/ARIALN.TTF")) {
+        std::cerr << "Failed to load font.\n";
+        return EXIT_FAILURE;
+    }
 
-    // Music
+    sf::Text inputDisplay;
+    inputDisplay.setFont(font);
+    inputDisplay.setCharacterSize(10);
+    inputDisplay.setFillColor(sf::Color::White);
+    inputDisplay.setPosition(SCREEN_WIDTH / 2.0f - 100, SCREEN_HEIGHT / 2.0f + 60);
+    inputDisplay.setString("Enter Name: ");
+
     sf::Music backgroundMusic;
     if (backgroundMusic.openFromFile("Resources/music/music.ogg")) {
         backgroundMusic.setLoop(true);
     }
     bool music_started = false;
 
-    // Game objects
     EnemyManager enemy_manager;
     Player player;
     Ufo ufo(random_engine);
@@ -81,23 +86,33 @@ int main() {
             while (window.pollEvent(event)) {
                 if (event.type == sf::Event::Closed)
                     window.close();
+
+                if (show_splash && !nameEntered && event.type == sf::Event::TextEntered) {
+                    if (event.text.unicode == '\b') {
+                        if (!inputText.empty()) inputText.pop_back();
+                    } else if (event.text.unicode == '\r' || event.text.unicode == '\n') {
+                        playerName = inputText;
+                        playerName.erase(0, playerName.find_first_not_of(" \t\r\n"));
+                        playerName.erase(playerName.find_last_not_of(" \t\r\n") + 1);
+                        level = UserData::getLastLevel(playerName);
+                        show_splash = false;
+                        player_initialized = true;
+                        enemy_manager.reset(level);
+                        player.reset();
+                        ufo.reset(1, random_engine);
+                        nameEntered = true;
+                    } else if (event.text.unicode < 128) {
+                        inputText += static_cast<char>(event.text.unicode);
+                    }
+                    inputDisplay.setString("Enter Name: " + inputText);
+                }
             }
 
             if (show_splash) {
-                if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-                    std::cout << "Enter your username: ";
-                    std::getline(std::cin, playerName);
-                    level = UserData::getLastLevel(playerName);
-                    show_splash = false;
-                    player_initialized = true;
-                    enemy_manager.reset(level);
-                    player.reset();
-                    ufo.reset(1, random_engine);
-                }
-
                 window.clear();
                 window.draw(background_sprite);
                 window.draw(logoSprite);
+                window.draw(inputDisplay);
                 window.display();
                 continue;
             }
@@ -113,7 +128,7 @@ int main() {
                     player.reset();
                 } else {
                     game_over = true;
-                    UserData::savePlayerData(playerName, level);  // Save progress
+                    UserData::savePlayerData(playerName, level,player.getScore());
                 }
             }
 
@@ -151,7 +166,6 @@ int main() {
                     player.resetScore();
                     enemy_manager.reset(level);
                     ufo.reset(1, random_engine);
-
                     if (music_started && backgroundMusic.getStatus() != sf::Music::Playing)
                         backgroundMusic.play();
                 }
@@ -160,12 +174,14 @@ int main() {
             }
         }
 
+        // Rendering
         if (FRAME_DURATION > lag) {
             window.clear();
             window.draw(background_sprite);
 
             if (show_splash) {
                 window.draw(logoSprite);
+                window.draw(inputDisplay);
             } else {
                 if (!player.get_dead()) {
                     enemy_manager.draw(window);
@@ -194,13 +210,11 @@ int main() {
 
                 player.draw(window);
                 draw_text(0.25f * BASE_SIZE, 0.25f * BASE_SIZE, "Level: " + std::to_string(level), window, font_texture);
-                // draw_text(0.25f * BASE_SIZE, 1.5f * BASE_SIZE, "Score: " + std::to_string(player.getScore()), window, font_texture);
                 draw_text(0.25f * BASE_SIZE, 18.5f * BASE_SIZE, "Player: " + playerName, window, font_texture);
 
                 if (game_over) {
                     draw_text(0.5f * (SCREEN_WIDTH - 5 * BASE_SIZE), 0.5f * (SCREEN_HEIGHT - BASE_SIZE), "Game over!", window, font_texture);
                     draw_text(0.5f * (SCREEN_WIDTH - 9.5f * BASE_SIZE), 0.5f * (SCREEN_HEIGHT + BASE_SIZE), "Press R to restart", window, font_texture);
-                    // draw_text(0.5f * (SCREEN_WIDTH - 7 * BASE_SIZE), 0.5f * (SCREEN_HEIGHT + 3 * BASE_SIZE), "Final Score: " + std::to_string(player.getScore()), window, font_texture);
                 } else if (next_level) {
                     draw_text(0.5f * (SCREEN_WIDTH - 5.5f * BASE_SIZE), 0.5f * (SCREEN_HEIGHT - BASE_SIZE), "Next level!", window, font_texture);
                 }

@@ -5,50 +5,69 @@
 
 const std::string UserData::saveFilePath = "player_data.txt";
 
-std::unordered_map<std::string, unsigned short> UserData::loadAllData() {
-    std::unordered_map<std::string, unsigned short> data;
+// Load all player data (name -> {level, score})
+std::unordered_map<std::string, std::pair<unsigned short, unsigned int>> UserData::loadAllData() {
+    std::unordered_map<std::string, std::pair<unsigned short, unsigned int>> data;
     std::ifstream file(saveFilePath);
     if (!file.is_open()) {
-        // No save file yet, return empty data
-        return data;
+        return data; // no save file
     }
 
     std::string line;
     while (std::getline(file, line)) {
         std::istringstream iss(line);
         std::string name;
-        unsigned short level;
+        std::string levelStr, scoreStr;
 
-        if (std::getline(iss, name, ',') && iss >> level) {
-            data[name] = level;
+        if (std::getline(iss, name, ',') &&
+            std::getline(iss, levelStr, ',') &&
+            std::getline(iss, scoreStr)) {
+            
+            unsigned short level = static_cast<unsigned short>(std::stoi(levelStr));
+            unsigned int score = static_cast<unsigned int>(std::stoul(scoreStr));
+            data[name] = { level, score };
         }
     }
+
     return data;
 }
 
-void UserData::saveAllData(const std::unordered_map<std::string, unsigned short>& data) {
+// Save all player data
+void UserData::saveAllData(const std::unordered_map<std::string, std::pair<unsigned short, unsigned int>>& data) {
     std::ofstream file(saveFilePath, std::ios::trunc);
     if (!file.is_open()) {
-        std::cerr << "Failed to open save file for writing: " << saveFilePath << std::endl;
+        std::cerr << "Failed to open save file: " << saveFilePath << std::endl;
         return;
     }
 
-    for (const auto& [name, level] : data) {
-        file << name << "," << level << "\n";
+    for (const auto& [name, pair] : data) {
+        file << name << "," << pair.first << "," << pair.second << "\n";
     }
 }
 
+// Get last saved level of the player
 unsigned short UserData::getLastLevel(const std::string& playerName) {
     auto data = loadAllData();
     auto it = data.find(playerName);
     if (it != data.end()) {
-        return it->second;
+        return it->second.first;
     }
-    return 0; // default level if not found
+    return 0;
 }
 
-void UserData::savePlayerData(const std::string& playerName, unsigned short level) {
+// Get last saved score of the player
+unsigned int UserData::getPlayerScore(const std::string& playerName) {
     auto data = loadAllData();
-    data[playerName] = level;
+    auto it = data.find(playerName);
+    if (it != data.end()) {
+        return it->second.second;
+    }
+    return 0;
+}
+
+// Save player level and score
+void UserData::savePlayerData(const std::string& playerName, unsigned short level, unsigned int score) {
+    auto data = loadAllData();
+    data[playerName] = { level, score };
     saveAllData(data);
 }

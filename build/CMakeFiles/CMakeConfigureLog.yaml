@@ -2605,3 +2605,263 @@ events:
         
       exitCode: 2
 ...
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:1 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: /usr/bin/avr-g++ 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+      
+      The CXX compiler identification is GNU, found in:
+        /home/dread/Downloads/Space-invaders-Main/build/CMakeFiles/3.28.3/CompilerIdCXX/a.out
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:1 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "/home/dread/Downloads/Space-invaders-Main/build/CMakeFiles/CMakeScratch/TryCompile-wtt08P"
+      binary: "/home/dread/Downloads/Space-invaders-Main/build/CMakeFiles/CMakeScratch/TryCompile-wtt08P"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/dread/Downloads/Space-invaders-Main/build/CMakeFiles/CMakeScratch/TryCompile-wtt08P'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_427d1/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_427d1.dir/build.make CMakeFiles/cmTC_427d1.dir/build
+        gmake[1]: Entering directory '/home/dread/Downloads/Space-invaders-Main/build/CMakeFiles/CMakeScratch/TryCompile-wtt08P'
+        Building CXX object CMakeFiles/cmTC_427d1.dir/CMakeCXXCompilerABI.cpp.o
+        /usr/bin/avr-g++   -v -o CMakeFiles/cmTC_427d1.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp
+        Using built-in specs.
+        Reading specs from /usr/lib/gcc/avr/7.3.0/device-specs/specs-avr2
+        COLLECT_GCC=/usr/bin/avr-g++
+        Target: avr
+        Configured with: ../gcc/configure -v --enable-languages=c,c++ --prefix=/usr/lib --infodir=/usr/share/info --mandir=/usr/share/man --bindir=/usr/bin --libexecdir=/usr/lib --libdir=/usr/lib --enable-shared --with-system-zlib --enable-long-long --enable-nls --without-included-gettext --disable-libssp --disable-libcc1 --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=avr --enable-host-pie ASFLAGS= ASFLAGS_FOR_BUILD= CFLAGS='-g -O2 -ffile-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=. -flto=auto -ffat-lto-objects -fstack-protector-strong -fstack-clash-protection -Wformat  -fcf-protection -fdebug-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=/usr/src/gcc-avr-1:7.3.0+Atmel3.7.0-1' 'CFLAGS_FOR_BUILD=-g -O2' CPPFLAGS='-Wdate-time -D_FORTIFY_SOURCE=2' CPPFLAGS_FOR_BUILD= CXXFLAGS='-g -O2 -ffile-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=. -flto=auto -ffat-lto-objects -fstack-protector-strong -fstack-clash-protection -Wformat  -fcf-protection -fdebug-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=/usr/src/gcc-avr-1:7.3.0+Atmel3.7.0-1' 'CXXFLAGS_FOR_BUILD=-g -O2' DFLAGS=-frelease DFLAGS_FOR_BUILD=-frelease FCFLAGS='-g -O2 -ffile-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=. -flto=auto -ffat-lto-objects -fstack-protector-strong -fstack-clash-protection -fcf-protection -fdebug-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=/usr/src/gcc-avr-1:7.3.0+Atmel3.7.0-1' 'FCFLAGS_FOR_BUILD=-g -O2' FFLAGS='-g -O2 -ffile-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=. -flto=auto -ffat-lto-objects -fstack-protector-strong -fstack-clash-protection -fcf-protection -fdebug-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=/usr/src/gcc-avr-1:7.3.0+Atmel3.7.0-1' 'FFLAGS_FOR_BUILD=-g -O2' GCJFLAGS=-fdebug-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=/usr/src/gcc-avr-1:7.3.0+Atmel3.7.0-1 LDFLAGS='-Wl,-Bsymbolic-functions -flto=auto -ffat-lto-objects -Wl,-z,relro' LDFLAGS_FOR_BUILD= OBJCFLAGS='-g -O2 -ffile-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=. -flto=auto -ffat-lto-objects -fstack-protector-strong -fstack-clash-protection -Wformat  -fcf-protection -fdebug-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=/usr/src/gcc-avr-1:7.3.0+Atmel3.7.0-1' 'OBJCFLAGS_FOR_BUILD=-g -O2' OBJCXXFLAGS='-g -O2 -ffile-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=. -flto=auto -ffat-lto-objects -fstack-protector-strong -fstack-clash-protection -Wformat  -fcf-protection -fdebug-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=/usr/src/gcc-avr-1:7.3.0+Atmel3.7.0-1' 'OBJCXXFLAGS_FOR_BUILD=-g -O2'
+        Thread model: single
+        gcc version 7.3.0 (GCC) 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_427d1.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-specs=device-specs/specs-avr2'
+         /usr/lib/gcc/avr/7.3.0/cc1plus -quiet -v /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp -mn-flash=1 -mskip-bug -quiet -dumpbase CMakeCXXCompilerABI.cpp -auxbase-strip CMakeFiles/cmTC_427d1.dir/CMakeCXXCompilerABI.cpp.o -version -mn-flash=1 -mskip-bug -fno-rtti -fno-enforce-eh-specs -fno-exceptions -o /tmp/ccySzvWK.s
+        GNU C++14 (GCC) version 7.3.0 (avr)
+        	compiled by GNU C version 13.2.0, GMP version 6.3.0, MPFR version 4.2.1, MPC version 1.3.1, isl version none
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring nonexistent directory "/usr/lib/gcc/avr/7.3.0/../../../avr/include/c++/7.3.0"
+        ignoring nonexistent directory "/usr/lib/gcc/avr/7.3.0/../../../avr/include/c++/7.3.0/avr"
+        ignoring nonexistent directory "/usr/lib/gcc/avr/7.3.0/../../../avr/include/c++/7.3.0/backward"
+        ignoring nonexistent directory "/usr/lib/gcc/avr/7.3.0/../../../avr/sys-include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /usr/lib/gcc/avr/7.3.0/include
+         /usr/lib/gcc/avr/7.3.0/include-fixed
+         /usr/lib/gcc/avr/7.3.0/../../../avr/include
+        End of search list.
+        GNU C++14 (GCC) version 7.3.0 (avr)
+        	compiled by GNU C version 13.2.0, GMP version 6.3.0, MPFR version 4.2.1, MPC version 1.3.1, isl version none
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        Compiler executable checksum: cf9ff40b4c2be7337f4e136124bad438
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_427d1.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-specs=device-specs/specs-avr2'
+         /usr/lib/gcc/avr/7.3.0/../../../avr/bin/as -mmcu=avr2 -o CMakeFiles/cmTC_427d1.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccySzvWK.s
+        COMPILER_PATH=/usr/lib/gcc/avr/7.3.0/:/usr/lib/gcc/avr/7.3.0/:/usr/lib/gcc/avr/:/usr/lib/gcc/avr/7.3.0/:/usr/lib/gcc/avr/:/usr/lib/gcc/avr/7.3.0/../../../avr/bin/
+        LIBRARY_PATH=/usr/lib/gcc/avr/7.3.0/:/usr/lib/gcc/avr/7.3.0/../../../avr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_427d1.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-specs=device-specs/specs-avr2'
+        Linking CXX executable cmTC_427d1
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_427d1.dir/link.txt --verbose=1
+        /usr/bin/avr-g++  -v -rdynamic CMakeFiles/cmTC_427d1.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_427d1 
+        Using built-in specs.
+        Reading specs from /usr/lib/gcc/avr/7.3.0/device-specs/specs-avr2
+        COLLECT_GCC=/usr/bin/avr-g++
+        COLLECT_LTO_WRAPPER=/usr/lib/gcc/avr/7.3.0/lto-wrapper
+        avr-g++: error: unrecognized command line option '-rdynamic'
+        Target: avr
+        Configured with: ../gcc/configure -v --enable-languages=c,c++ --prefix=/usr/lib --infodir=/usr/share/info --mandir=/usr/share/man --bindir=/usr/bin --libexecdir=/usr/lib --libdir=/usr/lib --enable-shared --with-system-zlib --enable-long-long --enable-nls --without-included-gettext --disable-libssp --disable-libcc1 --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=avr --enable-host-pie ASFLAGS= ASFLAGS_FOR_BUILD= CFLAGS='-g -O2 -ffile-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=. -flto=auto -ffat-lto-objects -fstack-protector-strong -fstack-clash-protection -Wformat  -fcf-protection -fdebug-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=/usr/src/gcc-avr-1:7.3.0+Atmel3.7.0-1' 'CFLAGS_FOR_BUILD=-g -O2' CPPFLAGS='-Wdate-time -D_FORTIFY_SOURCE=2' CPPFLAGS_FOR_BUILD= CXXFLAGS='-g -O2 -ffile-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=. -flto=auto -ffat-lto-objects -fstack-protector-strong -fstack-clash-protection -Wformat  -fcf-protection -fdebug-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=/usr/src/gcc-avr-1:7.3.0+Atmel3.7.0-1' 'CXXFLAGS_FOR_BUILD=-g -O2' DFLAGS=-frelease DFLAGS_FOR_BUILD=-frelease FCFLAGS='-g -O2 -ffile-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=. -flto=auto -ffat-lto-objects -fstack-protector-strong -fstack-clash-protection -fcf-protection -fdebug-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=/usr/src/gcc-avr-1:7.3.0+Atmel3.7.0-1' 'FCFLAGS_FOR_BUILD=-g -O2' FFLAGS='-g -O2 -ffile-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=. -flto=auto -ffat-lto-objects -fstack-protector-strong -fstack-clash-protection -fcf-protection -fdebug-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=/usr/src/gcc-avr-1:7.3.0+Atmel3.7.0-1' 'FFLAGS_FOR_BUILD=-g -O2' GCJFLAGS=-fdebug-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=/usr/src/gcc-avr-1:7.3.0+Atmel3.7.0-1 LDFLAGS='-Wl,-Bsymbolic-functions -flto=auto -ffat-lto-objects -Wl,-z,relro' LDFLAGS_FOR_BUILD= OBJCFLAGS='-g -O2 -ffile-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=. -flto=auto -ffat-lto-objects -fstack-protector-strong -fstack-clash-protection -Wformat  -fcf-protection -fdebug-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=/usr/src/gcc-avr-1:7.3.0+Atmel3.7.0-1' 'OBJCFLAGS_FOR_BUILD=-g -O2' OBJCXXFLAGS='-g -O2 -ffile-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=. -flto=auto -ffat-lto-objects -fstack-protector-strong -fstack-clash-protection -Wformat  -fcf-protection -fdebug-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=/usr/src/gcc-avr-1:7.3.0+Atmel3.7.0-1' 'OBJCXXFLAGS_FOR_BUILD=-g -O2'
+        Thread model: single
+        gcc version 7.3.0 (GCC) 
+        gmake[1]: *** [CMakeFiles/cmTC_427d1.dir/build.make:99: cmTC_427d1] Error 1
+        gmake[1]: Leaving directory '/home/dread/Downloads/Space-invaders-Main/build/CMakeFiles/CMakeScratch/TryCompile-wtt08P'
+        gmake: *** [Makefile:127: cmTC_427d1/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeTestCXXCompiler.cmake:49 (try_compile)"
+      - "CMakeLists.txt:1 (project)"
+    checks:
+      - "Check for working CXX compiler: /usr/bin/avr-g++"
+    directories:
+      source: "/home/dread/Downloads/Space-invaders-Main/build/CMakeFiles/CMakeScratch/TryCompile-HyexCj"
+      binary: "/home/dread/Downloads/Space-invaders-Main/build/CMakeFiles/CMakeScratch/TryCompile-HyexCj"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_CXX_COMPILER_WORKS"
+      cached: true
+      stdout: |
+        Change Dir: '/home/dread/Downloads/Space-invaders-Main/build/CMakeFiles/CMakeScratch/TryCompile-HyexCj'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_5426f/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_5426f.dir/build.make CMakeFiles/cmTC_5426f.dir/build
+        gmake[1]: Entering directory '/home/dread/Downloads/Space-invaders-Main/build/CMakeFiles/CMakeScratch/TryCompile-HyexCj'
+        Building CXX object CMakeFiles/cmTC_5426f.dir/testCXXCompiler.cxx.o
+        /usr/bin/avr-g++    -o CMakeFiles/cmTC_5426f.dir/testCXXCompiler.cxx.o -c /home/dread/Downloads/Space-invaders-Main/build/CMakeFiles/CMakeScratch/TryCompile-HyexCj/testCXXCompiler.cxx
+        Linking CXX executable cmTC_5426f
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5426f.dir/link.txt --verbose=1
+        /usr/bin/avr-g++ -rdynamic CMakeFiles/cmTC_5426f.dir/testCXXCompiler.cxx.o -o cmTC_5426f 
+        avr-g++: error: unrecognized command line option ‘-rdynamic’
+        gmake[1]: *** [CMakeFiles/cmTC_5426f.dir/build.make:99: cmTC_5426f] Error 1
+        gmake[1]: Leaving directory '/home/dread/Downloads/Space-invaders-Main/build/CMakeFiles/CMakeScratch/TryCompile-HyexCj'
+        gmake: *** [Makefile:127: cmTC_5426f/fast] Error 2
+        
+      exitCode: 2
+...
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:1 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: /usr/bin/avr-g++ 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+      
+      The CXX compiler identification is GNU, found in:
+        /home/dread/Downloads/Space-invaders-Main/build/CMakeFiles/3.28.3/CompilerIdCXX/a.out
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:1 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "/home/dread/Downloads/Space-invaders-Main/build/CMakeFiles/CMakeScratch/TryCompile-XFKgXk"
+      binary: "/home/dread/Downloads/Space-invaders-Main/build/CMakeFiles/CMakeScratch/TryCompile-XFKgXk"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/dread/Downloads/Space-invaders-Main/build/CMakeFiles/CMakeScratch/TryCompile-XFKgXk'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_925f0/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_925f0.dir/build.make CMakeFiles/cmTC_925f0.dir/build
+        gmake[1]: Entering directory '/home/dread/Downloads/Space-invaders-Main/build/CMakeFiles/CMakeScratch/TryCompile-XFKgXk'
+        Building CXX object CMakeFiles/cmTC_925f0.dir/CMakeCXXCompilerABI.cpp.o
+        /usr/bin/avr-g++   -v -o CMakeFiles/cmTC_925f0.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp
+        Using built-in specs.
+        Reading specs from /usr/lib/gcc/avr/7.3.0/device-specs/specs-avr2
+        COLLECT_GCC=/usr/bin/avr-g++
+        Target: avr
+        Configured with: ../gcc/configure -v --enable-languages=c,c++ --prefix=/usr/lib --infodir=/usr/share/info --mandir=/usr/share/man --bindir=/usr/bin --libexecdir=/usr/lib --libdir=/usr/lib --enable-shared --with-system-zlib --enable-long-long --enable-nls --without-included-gettext --disable-libssp --disable-libcc1 --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=avr --enable-host-pie ASFLAGS= ASFLAGS_FOR_BUILD= CFLAGS='-g -O2 -ffile-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=. -flto=auto -ffat-lto-objects -fstack-protector-strong -fstack-clash-protection -Wformat  -fcf-protection -fdebug-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=/usr/src/gcc-avr-1:7.3.0+Atmel3.7.0-1' 'CFLAGS_FOR_BUILD=-g -O2' CPPFLAGS='-Wdate-time -D_FORTIFY_SOURCE=2' CPPFLAGS_FOR_BUILD= CXXFLAGS='-g -O2 -ffile-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=. -flto=auto -ffat-lto-objects -fstack-protector-strong -fstack-clash-protection -Wformat  -fcf-protection -fdebug-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=/usr/src/gcc-avr-1:7.3.0+Atmel3.7.0-1' 'CXXFLAGS_FOR_BUILD=-g -O2' DFLAGS=-frelease DFLAGS_FOR_BUILD=-frelease FCFLAGS='-g -O2 -ffile-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=. -flto=auto -ffat-lto-objects -fstack-protector-strong -fstack-clash-protection -fcf-protection -fdebug-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=/usr/src/gcc-avr-1:7.3.0+Atmel3.7.0-1' 'FCFLAGS_FOR_BUILD=-g -O2' FFLAGS='-g -O2 -ffile-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=. -flto=auto -ffat-lto-objects -fstack-protector-strong -fstack-clash-protection -fcf-protection -fdebug-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=/usr/src/gcc-avr-1:7.3.0+Atmel3.7.0-1' 'FFLAGS_FOR_BUILD=-g -O2' GCJFLAGS=-fdebug-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=/usr/src/gcc-avr-1:7.3.0+Atmel3.7.0-1 LDFLAGS='-Wl,-Bsymbolic-functions -flto=auto -ffat-lto-objects -Wl,-z,relro' LDFLAGS_FOR_BUILD= OBJCFLAGS='-g -O2 -ffile-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=. -flto=auto -ffat-lto-objects -fstack-protector-strong -fstack-clash-protection -Wformat  -fcf-protection -fdebug-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=/usr/src/gcc-avr-1:7.3.0+Atmel3.7.0-1' 'OBJCFLAGS_FOR_BUILD=-g -O2' OBJCXXFLAGS='-g -O2 -ffile-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=. -flto=auto -ffat-lto-objects -fstack-protector-strong -fstack-clash-protection -Wformat  -fcf-protection -fdebug-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=/usr/src/gcc-avr-1:7.3.0+Atmel3.7.0-1' 'OBJCXXFLAGS_FOR_BUILD=-g -O2'
+        Thread model: single
+        gcc version 7.3.0 (GCC) 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_925f0.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-specs=device-specs/specs-avr2'
+         /usr/lib/gcc/avr/7.3.0/cc1plus -quiet -v /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp -mn-flash=1 -mskip-bug -quiet -dumpbase CMakeCXXCompilerABI.cpp -auxbase-strip CMakeFiles/cmTC_925f0.dir/CMakeCXXCompilerABI.cpp.o -version -mn-flash=1 -mskip-bug -fno-rtti -fno-enforce-eh-specs -fno-exceptions -o /tmp/ccGzgjuZ.s
+        GNU C++14 (GCC) version 7.3.0 (avr)
+        	compiled by GNU C version 13.2.0, GMP version 6.3.0, MPFR version 4.2.1, MPC version 1.3.1, isl version none
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring nonexistent directory "/usr/lib/gcc/avr/7.3.0/../../../avr/include/c++/7.3.0"
+        ignoring nonexistent directory "/usr/lib/gcc/avr/7.3.0/../../../avr/include/c++/7.3.0/avr"
+        ignoring nonexistent directory "/usr/lib/gcc/avr/7.3.0/../../../avr/include/c++/7.3.0/backward"
+        ignoring nonexistent directory "/usr/lib/gcc/avr/7.3.0/../../../avr/sys-include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /usr/lib/gcc/avr/7.3.0/include
+         /usr/lib/gcc/avr/7.3.0/include-fixed
+         /usr/lib/gcc/avr/7.3.0/../../../avr/include
+        End of search list.
+        GNU C++14 (GCC) version 7.3.0 (avr)
+        	compiled by GNU C version 13.2.0, GMP version 6.3.0, MPFR version 4.2.1, MPC version 1.3.1, isl version none
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        Compiler executable checksum: cf9ff40b4c2be7337f4e136124bad438
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_925f0.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-specs=device-specs/specs-avr2'
+         /usr/lib/gcc/avr/7.3.0/../../../avr/bin/as -mmcu=avr2 -o CMakeFiles/cmTC_925f0.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccGzgjuZ.s
+        COMPILER_PATH=/usr/lib/gcc/avr/7.3.0/:/usr/lib/gcc/avr/7.3.0/:/usr/lib/gcc/avr/:/usr/lib/gcc/avr/7.3.0/:/usr/lib/gcc/avr/:/usr/lib/gcc/avr/7.3.0/../../../avr/bin/
+        LIBRARY_PATH=/usr/lib/gcc/avr/7.3.0/:/usr/lib/gcc/avr/7.3.0/../../../avr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_925f0.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-specs=device-specs/specs-avr2'
+        Linking CXX executable cmTC_925f0
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_925f0.dir/link.txt --verbose=1
+        /usr/bin/avr-g++  -v -rdynamic CMakeFiles/cmTC_925f0.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_925f0 
+        Using built-in specs.
+        Reading specs from /usr/lib/gcc/avr/7.3.0/device-specs/specs-avr2
+        COLLECT_GCC=/usr/bin/avr-g++
+        COLLECT_LTO_WRAPPER=/usr/lib/gcc/avr/7.3.0/lto-wrapper
+        avr-g++: error: unrecognized command line option '-rdynamic'
+        Target: avr
+        Configured with: ../gcc/configure -v --enable-languages=c,c++ --prefix=/usr/lib --infodir=/usr/share/info --mandir=/usr/share/man --bindir=/usr/bin --libexecdir=/usr/lib --libdir=/usr/lib --enable-shared --with-system-zlib --enable-long-long --enable-nls --without-included-gettext --disable-libssp --disable-libcc1 --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=avr --enable-host-pie ASFLAGS= ASFLAGS_FOR_BUILD= CFLAGS='-g -O2 -ffile-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=. -flto=auto -ffat-lto-objects -fstack-protector-strong -fstack-clash-protection -Wformat  -fcf-protection -fdebug-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=/usr/src/gcc-avr-1:7.3.0+Atmel3.7.0-1' 'CFLAGS_FOR_BUILD=-g -O2' CPPFLAGS='-Wdate-time -D_FORTIFY_SOURCE=2' CPPFLAGS_FOR_BUILD= CXXFLAGS='-g -O2 -ffile-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=. -flto=auto -ffat-lto-objects -fstack-protector-strong -fstack-clash-protection -Wformat  -fcf-protection -fdebug-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=/usr/src/gcc-avr-1:7.3.0+Atmel3.7.0-1' 'CXXFLAGS_FOR_BUILD=-g -O2' DFLAGS=-frelease DFLAGS_FOR_BUILD=-frelease FCFLAGS='-g -O2 -ffile-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=. -flto=auto -ffat-lto-objects -fstack-protector-strong -fstack-clash-protection -fcf-protection -fdebug-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=/usr/src/gcc-avr-1:7.3.0+Atmel3.7.0-1' 'FCFLAGS_FOR_BUILD=-g -O2' FFLAGS='-g -O2 -ffile-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=. -flto=auto -ffat-lto-objects -fstack-protector-strong -fstack-clash-protection -fcf-protection -fdebug-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=/usr/src/gcc-avr-1:7.3.0+Atmel3.7.0-1' 'FFLAGS_FOR_BUILD=-g -O2' GCJFLAGS=-fdebug-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=/usr/src/gcc-avr-1:7.3.0+Atmel3.7.0-1 LDFLAGS='-Wl,-Bsymbolic-functions -flto=auto -ffat-lto-objects -Wl,-z,relro' LDFLAGS_FOR_BUILD= OBJCFLAGS='-g -O2 -ffile-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=. -flto=auto -ffat-lto-objects -fstack-protector-strong -fstack-clash-protection -Wformat  -fcf-protection -fdebug-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=/usr/src/gcc-avr-1:7.3.0+Atmel3.7.0-1' 'OBJCFLAGS_FOR_BUILD=-g -O2' OBJCXXFLAGS='-g -O2 -ffile-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=. -flto=auto -ffat-lto-objects -fstack-protector-strong -fstack-clash-protection -Wformat  -fcf-protection -fdebug-prefix-map=/build/gcc-avr-TYLliY/gcc-avr-7.3.0+Atmel3.7.0=/usr/src/gcc-avr-1:7.3.0+Atmel3.7.0-1' 'OBJCXXFLAGS_FOR_BUILD=-g -O2'
+        Thread model: single
+        gcc version 7.3.0 (GCC) 
+        gmake[1]: *** [CMakeFiles/cmTC_925f0.dir/build.make:99: cmTC_925f0] Error 1
+        gmake[1]: Leaving directory '/home/dread/Downloads/Space-invaders-Main/build/CMakeFiles/CMakeScratch/TryCompile-XFKgXk'
+        gmake: *** [Makefile:127: cmTC_925f0/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeTestCXXCompiler.cmake:49 (try_compile)"
+      - "CMakeLists.txt:1 (project)"
+    checks:
+      - "Check for working CXX compiler: /usr/bin/avr-g++"
+    directories:
+      source: "/home/dread/Downloads/Space-invaders-Main/build/CMakeFiles/CMakeScratch/TryCompile-qgUXWH"
+      binary: "/home/dread/Downloads/Space-invaders-Main/build/CMakeFiles/CMakeScratch/TryCompile-qgUXWH"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_CXX_COMPILER_WORKS"
+      cached: true
+      stdout: |
+        Change Dir: '/home/dread/Downloads/Space-invaders-Main/build/CMakeFiles/CMakeScratch/TryCompile-qgUXWH'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_cd486/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_cd486.dir/build.make CMakeFiles/cmTC_cd486.dir/build
+        gmake[1]: Entering directory '/home/dread/Downloads/Space-invaders-Main/build/CMakeFiles/CMakeScratch/TryCompile-qgUXWH'
+        Building CXX object CMakeFiles/cmTC_cd486.dir/testCXXCompiler.cxx.o
+        /usr/bin/avr-g++    -o CMakeFiles/cmTC_cd486.dir/testCXXCompiler.cxx.o -c /home/dread/Downloads/Space-invaders-Main/build/CMakeFiles/CMakeScratch/TryCompile-qgUXWH/testCXXCompiler.cxx
+        Linking CXX executable cmTC_cd486
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cd486.dir/link.txt --verbose=1
+        /usr/bin/avr-g++ -rdynamic CMakeFiles/cmTC_cd486.dir/testCXXCompiler.cxx.o -o cmTC_cd486 
+        avr-g++: error: unrecognized command line option ‘-rdynamic’
+        gmake[1]: *** [CMakeFiles/cmTC_cd486.dir/build.make:99: cmTC_cd486] Error 1
+        gmake[1]: Leaving directory '/home/dread/Downloads/Space-invaders-Main/build/CMakeFiles/CMakeScratch/TryCompile-qgUXWH'
+        gmake: *** [Makefile:127: cmTC_cd486/fast] Error 2
+        
+      exitCode: 2
+...
